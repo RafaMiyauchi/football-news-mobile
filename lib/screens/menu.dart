@@ -1,15 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:football_news/widgets/news_card.dart';
-// Import drawer widget
+// Import the drawer widget
 import 'package:football_news/widgets/left_drawer.dart';
+// Import the news_card widget
+import 'package:football_news/widgets/news_card.dart';
 
+// Class definition from Tutorial 6
+class InfoCard extends StatelessWidget {
+  // Kartu informasi yang menampilkan title dan content.
+  final String title; // Judul kartu.
+  final String content; // Isi kartu.
 
+  const InfoCard({super.key, required this.title, required this.content});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      // Membuat kotak kartu dengan bayangan dibawahnya.
+      elevation: 2.0,
+      child: Container(
+        // Mengatur ukuran dan jarak di dalam kartu.
+        width: MediaQuery.of(context).size.width / 3.5, // menyesuaikan dengan
+        // lebar device yang digunakan.
+        padding: const EdgeInsets.all(16.0),
+        // Menyusun title dan content secara vertikal.
+        child: Column(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8.0),
+            Text(content),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Main page widget from Tutorial 6
 class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key}); //sudah ada pada code sebelumnya
-  final String nama = "Rafasyah Miyauchi"; // Name
-  final String npm = "2406453581"; // NPM
+  MyHomePage({super.key});
+
+  // Variables from Tutorial 6
+  final String nama = "Haru Urara"; // Name
+  final String npm = "2406275678"; // NPM
   final String kelas = "KKI"; // Class
 
+  // List of items from Tutorial 6
   final List<ItemHomepage> items = [
     ItemHomepage("See Football News", Icons.newspaper),
     ItemHomepage("Add News", Icons.add),
@@ -30,10 +68,11 @@ class MyHomePage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        // Warna Latar belakang AppBar diambil dari skema warna tema aplikasi.
+        // Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
-      drawer: LeftDrawer(),
+      // Add the drawer here
+      drawer: const LeftDrawer(),
       // Body halaman dengan padding di sekelilingnya.
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -91,38 +130,3 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
-// (... nya jangan di copy!)
-class InfoCard extends StatelessWidget {
-  // Kartu informasi yang menampilkan title dan content.
-  final String title; // Judul kartu.
-  final String content; // Isi kartu.
-  const InfoCard({super.key, required this.title, required this.content});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      // Membuat kotak kartu dengan bayangan dibawahnya.
-      elevation: 2.0,
-      child: Container(
-        // Mengatur ukuran dan jarak di dalam kartu.
-        width: MediaQuery.of(context).size.width / 3.5, // menyesuaikan dengan
-        // Lebar device yang digunakan.
-        padding: const EdgeInsets.all(16.0),
-        // Menyusun title dan content secara vertikal.
-        child: Column(
-          children: [
-            Text(
-              title,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8.0),
-            Text(content),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-

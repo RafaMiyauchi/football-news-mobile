@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// Import the menu.dart file from the screens folder
 import 'package:football_news/screens/menu.dart';
 
 void main() {
@@ -11,12 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Football News',
       theme: ThemeData(
+        // Changing the application theme color
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
             .copyWith(secondary: Colors.blueAccent[400]),
         useMaterial3: true,
       ),
+      // Set MyHomePage as the home screen
       home: MyHomePage(),
     );
   }
