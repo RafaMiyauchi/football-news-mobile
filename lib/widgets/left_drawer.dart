@@ -70,6 +70,20 @@ class LeftDrawer extends StatelessWidget {
               );
             },
           ),
+        // Create another ListTile for the news list page
+          ListTile(
+            leading: const Icon(Icons.newspaper),
+            title: const Text('See Football News'),
+            // For now I redirect to MyHomePage
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyHomePage(),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
